@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Machine Learning with Python</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#F5F7FA;color:#0D1B2E;}
+.header{background:linear-gradient(135deg,#0D3B6E 0%,#1A5FA8 70%,#E76F51 100%);padding:22px 16px 18px;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:-40px;left:-40px;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);color:white;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.3);margin-bottom:12px;}
+.back-btn:hover{background:rgba(255,255,255,0.25);}
+.header h1{font-size:clamp(20px,5vw,30px);font-weight:900;color:white;line-height:1.2;}
+.header h1 em{color:#FFD43B;font-style:normal;}
+.header p{color:rgba(255,255,255,0.7);font-size:12px;margin-top:5px;}
+.pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px;}
+.pill{padding:3px 11px;border-radius:20px;font-size:10.5px;font-weight:700;color:white;}
+
+.intro{margin:10px 8px;background:white;border-left:4px solid #2A9D8F;border-radius:8px;padding:12px 14px;font-size:12px;color:#2D4059;line-height:1.6;}
+
+.sec{margin:10px 8px;background:white;border-radius:10px;overflow:hidden;border:1px solid #C8D8EE;}
+.sec-hdr{padding:9px 14px;font-size:11.5px;font-weight:800;color:white;letter-spacing:.4px;border-left:4px solid #F5A623;}
+
+.skills-grid{padding:10px 14px;display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.skill-item{display:flex;align-items:center;gap:7px;font-size:11.5px;font-weight:600;}
+.sdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+
+.algo-wrap{padding:12px;display:flex;flex-wrap:wrap;gap:7px;justify-content:center;}
+.algo-center{background:#1A5FA8;color:white;padding:7px 18px;border-radius:20px;font-size:12px;font-weight:800;width:100%;text-align:center;margin-bottom:4px;}
+.algo-bub{padding:6px 14px;border-radius:20px;font-size:11px;font-weight:700;color:white;}
+
+.modules{padding:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;}
+.mod{border-radius:8px;overflow:hidden;border:1.5px solid;}
+.mod-hdr{padding:7px 8px;font-size:11px;font-weight:800;color:white;text-align:center;}
+.mod-title{padding:5px 8px 2px;font-size:11px;font-weight:800;text-align:center;}
+.mod-icon{text-align:center;font-size:20px;padding:4px 0;}
+.mod-items{padding:3px 8px 8px;list-style:none;}
+.mod-items li{font-size:10px;color:#2D4059;padding:2px 0 2px 10px;position:relative;line-height:1.35;}
+.mod-items li::before{content:'•';position:absolute;left:2px;font-weight:800;}
+
+.proj-grid{padding:10px;display:grid;grid-template-columns:repeat(2,1fr);gap:5px;}
+@media(min-width:480px){.proj-grid{grid-template-columns:repeat(4,1fr);}}
+.proj-item{display:flex;align-items:center;gap:6px;background:#F0F5FF;border-radius:6px;padding:7px 7px;font-size:11px;font-weight:600;color:#0D1B2E;line-height:1.3;}
+.pnum{width:20px;height:20px;border-radius:50%;color:white;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+.outline{padding:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+@media(min-width:480px){.outline{grid-template-columns:repeat(6,1fr);}}
+.oc{border-radius:8px;overflow:hidden;text-align:center;}
+.oc-hdr{padding:7px 4px;font-size:10px;font-weight:800;color:white;}
+.oc-body{padding:7px 5px;font-size:10px;color:#2D4059;font-weight:600;line-height:1.5;}
+
+.footer{background:#0D3B6E;padding:12px;text-align:center;color:white;font-size:11px;font-weight:700;border-top:3px solid #F5A623;margin-top:2px;}
+
+.sec{animation:fadeUp .4s ease both;}
+.sec:nth-child(2){animation-delay:.05s}.sec:nth-child(3){animation-delay:.10s}
+.sec:nth-child(4){animation-delay:.15s}.sec:nth-child(5){animation-delay:.20s}.sec:nth-child(6){animation-delay:.25s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="back-btn">← Back to Courses</a>
+  <h1>Build the Future with AI,<br><em>Machine Learning & Python</em></h1>
+  <p>Hands-On Training &nbsp;|&nbsp; Real Projects &nbsp;|&nbsp; Industry-Ready Skills</p>
+  <div class="pills">
+    <span class="pill" style="background:#306998">Python</span>
+    <span class="pill" style="background:#1A5FA8">Machine Learning</span>
+    <span class="pill" style="background:#2A9D8F">Data Analysis</span>
+    <span class="pill" style="background:#0078D4">Azure Cloud</span>
+    <span class="pill" style="background:#E76F51">Scikit-learn</span>
+  </div>
+</div>
+
+<div class="intro">
+  Thanks to the availability of large amounts of data, Machine Learning is becoming a game changer in almost every sector. Even in some cases, results by ML algorithms are better than human perception. Be it Amazon, Netflix or Google — Machine Learning is everywhere and here to stay. There is a huge demand for skilled ML/AI Engineers and an abundance of opportunities await you.
+</div>
+
+<div class="sec">
+  <div class="sec-hdr" style="background:#1A5FA8">⚡ TOP SKILLS YOU WILL LEARN</div>
+  <div class="skills-grid">
+    <div class="skill-item"><span class="sdot" style="background:#1A5FA8"></span>Python Programming & Data Analysis</div>
+    <div class="skill-item"><span class="sdot" style="background:#2A9D8F"></span>Exploratory Data Analysis (EDA)</div>
+    <div class="skill-item"><span class="sdot" style="background:#2A9D8F"></span>Data Visualization: Matplotlib, Seaborn</div>
+    <div class="skill-item"><span class="sdot" style="background:#E76F51"></span>Supervised Machine Learning</div>
+    <div class="skill-item"><span class="sdot" style="background:#E76F51"></span>Unsupervised Machine Learning</div>
+    <div class="skill-item"><span class="sdot" style="background:#F4A261"></span>Bias-Variance Trade-off</div>
+    <div class="skill-item"><span class="sdot" style="background:#F4A261"></span>Ensemble Learning & Boosting</div>
+    <div class="skill-item"><span class="sdot" style="background:#1A5FA8"></span>Hyperparameter Tuning</div>
+    <div class="skill-item"><span class="sdot" style="background:#0078D4"></span>Azure Cloud & ML Studio Basics</div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr" style="background:#2A9D8F">🧠 ML ALGORITHMS BY TASKS</div>
+  <div class="algo-wrap">
+    <div class="algo-center">ML Tasks Hub</div>
+    <div class="algo-bub" style="background:#1A5FA8">Regression</div>
+    <div class="algo-bub" style="background:#2A9D8F">Classification</div>
+    <div class="algo-bub" style="background:#F4A261">Clustering</div>
+    <div class="algo-bub" style="background:#E76F51">Dimensionality Reduction</div>
+    <div class="algo-bub" style="background:#7B2D8B">Generative Modeling</div>
+    <div class="algo-bub" style="background:#27AE60">Association Rules</div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr" style="background:#1A5FA8">📚 MACHINE LEARNING WITH PYTHON — COURSE MODULE</div>
+  <div class="modules">
+    <div class="mod" style="border-color:#1A5FA8;background:#EAF3FF">
+      <div class="mod-hdr" style="background:#1A5FA8">Module 1</div>
+      <div class="mod-title" style="color:#1A5FA8">Python for Data Science</div>
+      <div class="mod-icon">🐍</div>
+      <ul class="mod-items"><li>Data Types & Comparison Operators</li><li>If/elif/else, For & While Loops</li><li>Functions & Lambda Expressions</li><li>List Comprehension, Map & Filter</li></ul>
+    </div>
+    <div class="mod" style="border-color:#2A9D8F;background:#E6F7F5">
+      <div class="mod-hdr" style="background:#2A9D8F">Module 2</div>
+      <div class="mod-title" style="color:#2A9D8F">Data Analysis: NumPy & Pandas</div>
+      <div class="mod-icon">📊</div>
+      <ul class="mod-items"><li>NumPy Arrays, Indexing & Operations</li><li>Pandas Series & DataFrames</li><li>Missing Values, Groupby & Merge</li><li>Data Input / Output</li><li>Project: Data Analysis Using Pandas</li></ul>
+    </div>
+    <div class="mod" style="border-color:#F4A261;background:#FFF3ED">
+      <div class="mod-hdr" style="background:#F4A261">Module 3</div>
+      <div class="mod-title" style="color:#c96a1a">Exploratory Data Analysis</div>
+      <div class="mod-icon">🔍</div>
+      <ul class="mod-items"><li>What is EDA & Why It Matters</li><li>Intro to Data Visualization</li><li>Hands-on Matplotlib & Seaborn</li><li>Visualization Types & Use Cases</li></ul>
+    </div>
+    <div class="mod" style="border-color:#E76F51;background:#FFF0ED">
+      <div class="mod-hdr" style="background:#E76F51">Module 4</div>
+      <div class="mod-title" style="color:#E76F51">Machine Learning</div>
+      <div class="mod-icon">🤖</div>
+      <ul class="mod-items"><li>Supervised & Unsupervised ML</li><li>KNN, Naive Bayes, Logistic Regression</li><li>Decision Tree & SVM</li><li>Overfitting, Bias-Variance Trade-off</li><li>Ensemble & Hyperparameter Tuning</li></ul>
+    </div>
+    <div class="mod" style="border-color:#0078D4;background:#E6F2FF">
+      <div class="mod-hdr" style="background:#0078D4">Module 5</div>
+      <div class="mod-title" style="color:#0078D4">Azure Cloud Basics</div>
+      <div class="mod-icon">☁️</div>
+      <ul class="mod-items"><li>Azure ML Studio Introduction</li><li>Datasets & Compute Clusters</li><li>Azure Blob Storage & Data Lake</li><li>Deploy a Basic ML Model</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr" style="background:#E76F51">🚀 LIST OF PROJECTS — 20 Hands-On Machine Learning Projects</div>
+  <div class="proj-grid">
+    <div class="proj-item"><span class="pnum" style="background:#E76F51">1</span>Heart Disease Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#1A5FA8">2</span>House Price Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#2A9D8F">3</span>Diabetes Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#F4A261">4</span>Stock Price Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#E76F51">5</span>Credit Card Fraud Detection</div>
+    <div class="proj-item"><span class="pnum" style="background:#1A5FA8">6</span>Car Price Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#2A9D8F">7</span>Customer Churn Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#F4A261">8</span>Bitcoin Price Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#E76F51">9</span>Employee Attrition Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#1A5FA8">10</span>Rainfall Prediction Model</div>
+    <div class="proj-item"><span class="pnum" style="background:#2A9D8F">11</span>Loan Default Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#F4A261">12</span>Fuel Efficiency Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#E76F51">13</span>Breast Cancer Detection</div>
+    <div class="proj-item"><span class="pnum" style="background:#1A5FA8">14</span>Sales Forecasting Model</div>
+    <div class="proj-item"><span class="pnum" style="background:#2A9D8F">15</span>Bank Marketing Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#F4A261">16</span>Insurance Premium Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#E76F51">17</span>Employee Turnover Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#1A5FA8">18</span>Air Quality Index Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#2A9D8F">19</span>Titanic Survival Prediction</div>
+    <div class="proj-item"><span class="pnum" style="background:#F4A261">20</span>Energy Consumption Prediction</div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr" style="background:#2A9D8F">📋 PROGRAM OUTLINE & TECHNOLOGY STACK</div>
+  <div class="outline">
+    <div class="oc"><div class="oc-hdr" style="background:#1A5FA8">Live Training</div><div class="oc-body" style="background:#EAF3FF">Zoom / G-Meet<br>Webinars</div></div>
+    <div class="oc"><div class="oc-hdr" style="background:#2A9D8F">Content Sharing</div><div class="oc-body" style="background:#E6F7F5">WhatsApp<br>Study Material</div></div>
+    <div class="oc"><div class="oc-hdr" style="background:#F4A261">Assignment</div><div class="oc-body" style="background:#FFF3ED">Submit via<br>GitHub Repo</div></div>
+    <div class="oc"><div class="oc-hdr" style="background:#E76F51">Certificate</div><div class="oc-body" style="background:#FFF0ED">Completion Cert<br>After Training</div></div>
+    <div class="oc"><div class="oc-hdr" style="background:#27AE60">20 Projects</div><div class="oc-body" style="background:#E8F8EE">Classification<br>& Regression</div></div>
+    <div class="oc"><div class="oc-hdr" style="background:#0078D4">Tech Stack</div><div class="oc-body" style="background:#E6F2FF">Python|NumPy<br>Pandas|Scikit<br>Azure|GitHub</div></div>
+  </div>
+</div>
+
+<!-- ENROLL -->
+<div style="margin:12px 8px;background:linear-gradient(135deg,#EAF3FF,#D0E8FF);border:2px solid #1A5FA8;border-radius:14px;padding:20px 16px;text-align:center;">
+  <div style="font-size:24px;margin-bottom:6px;">🎓</div>
+  <h3 style="color:#0D3B6E;font-size:16px;font-weight:900;margin-bottom:5px;">Interested? Register Now!</h3>
+  <p style="color:#2D4059;font-size:12px;margin-bottom:14px;line-height:1.5;">Fill the form and our team will contact you.<br>Limited seats — register early!</p>
+  <a href="https://forms.gle/ijwiNBXffvDiWaGG7" target="_blank"
+     style="display:inline-block;background:linear-gradient(90deg,#1A5FA8,#2A9D8F);color:white;font-family:'Nunito',sans-serif;padding:12px 34px;border-radius:30px;font-size:14px;font-weight:900;text-decoration:none;box-shadow:0 4px 16px rgba(26,95,168,0.35);">
+    📋 &nbsp;Fill Registration Form
+  </a>
+  <div style="color:#888;font-size:11px;margin-top:8px;">Opens Google Form • Free to fill</div>
+</div>
+
+<div class="footer">Machine Learning for Industrial Applications &nbsp;|&nbsp; Enroll Now &nbsp;|&nbsp; Limited Seats &nbsp;|&nbsp; Real Projects</div>
+</body>
+</html>

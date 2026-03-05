@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Java Backend Engineering Mastery Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#EAF2FF;color:#0D1B2E;}
+
+/* HEADER */
+.header{
+  background:linear-gradient(160deg,#003087 0%,#0057C8 50%,#0099FF 100%);
+  padding:24px 16px 22px;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.header::before{
+  content:'';position:absolute;
+  top:-60px;left:-60px;width:220px;height:220px;
+  border-radius:50%;background:rgba(255,255,255,0.05);
+}
+.header::after{
+  content:'';position:absolute;
+  bottom:-40px;right:-40px;width:160px;height:160px;
+  border-radius:50%;background:rgba(255,255,255,0.05);
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.15);color:white;
+  padding:6px 14px;border-radius:20px;
+  font-size:12px;font-weight:700;text-decoration:none;
+  border:1px solid rgba(255,255,255,0.3);margin-bottom:14px;
+}
+.back-btn:hover{background:rgba(255,255,255,0.25);}
+.top-tag{
+  display:inline-block;
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.3);
+  color:rgba(255,255,255,0.9);
+  padding:4px 14px;border-radius:20px;
+  font-size:10px;font-weight:800;letter-spacing:1.5px;
+  margin-bottom:12px;text-transform:uppercase;
+}
+.header h1{
+  font-size:clamp(22px,5.5vw,34px);
+  font-weight:900;color:white;line-height:1.15;
+}
+.header h1 em{color:#FFD43B;font-style:normal;}
+.header h2{
+  font-size:clamp(14px,3.5vw,20px);
+  font-weight:900;color:rgba(255,255,255,0.95);
+  letter-spacing:1px;margin-top:2px;
+}
+.header p{
+  color:rgba(255,255,255,0.7);
+  font-size:12px;margin-top:8px;line-height:1.5;
+}
+
+/* GRID ROW */
+.row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:10px 8px;
+}
+@media(max-width:480px){.row{grid-template-columns:1fr;}}
+
+/* SECTIONS */
+.sec{
+  background:white;border-radius:10px;overflow:hidden;
+  border:1px solid #B8D0EE;
+  animation:fadeUp .4s ease both;
+}
+.sec:nth-child(1){animation-delay:.05s}
+.sec:nth-child(2){animation-delay:.10s}
+.sec:nth-child(3){animation-delay:.15s}
+.sec:nth-child(4){animation-delay:.20s}
+.sec-full{margin:0 8px;background:white;border-radius:10px;overflow:hidden;border:1px solid #B8D0EE;animation:fadeUp .4s ease both;}
+.sec-full:nth-of-type(1){animation-delay:.05s}
+.sec-full:nth-of-type(2){animation-delay:.10s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.sec-hdr{
+  padding:10px 14px;
+  font-size:12px;font-weight:800;
+  color:white;letter-spacing:.3px;
+  border-left:4px solid #FFD43B;
+}
+
+/* HIGHLIGHTS */
+.hl-list{padding:8px 12px 12px;list-style:none;}
+.hl-item{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 6px;border-bottom:1px dashed #D0E4FF;
+  font-size:12px;font-weight:700;color:#0D1B2E;
+}
+.hl-item:last-child{border-bottom:none;}
+.hl-icon{font-size:17px;flex-shrink:0;}
+
+/* CORE AREAS */
+.core-list{padding:10px 14px 14px;list-style:none;}
+.core-item{
+  display:flex;align-items:center;gap:8px;
+  padding:5px 0;border-bottom:1px solid #EEF4FF;
+  font-size:12px;font-weight:600;color:#1A2A4A;
+}
+.core-item:last-child{border-bottom:none;}
+.cdot{
+  width:8px;height:8px;border-radius:50%;
+  background:#0057C8;flex-shrink:0;
+}
+
+/* PROJECTS */
+.proj-list{padding:10px 12px 14px;list-style:none;}
+.proj-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 10px;border-radius:8px;
+  background:linear-gradient(135deg,#EAF2FF,#D0E8FF);
+  margin-bottom:7px;
+  font-size:12px;font-weight:700;color:#003087;
+  border-left:3px solid #0057C8;
+}
+.proj-item:last-child{margin-bottom:0;}
+.proj-icon{font-size:18px;flex-shrink:0;}
+
+/* TRAINERS */
+.trainer-list{padding:10px 14px 14px;list-style:none;}
+.trainer-item{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 10px;border-radius:8px;
+  background:#F0F6FF;margin-bottom:6px;
+  font-size:12px;font-weight:700;color:#0D1B2E;
+  border-left:3px solid #0099FF;
+}
+.trainer-item:last-child{margin-bottom:0;}
+.trainer-icon{font-size:18px;flex-shrink:0;}
+.trainer-ph{color:#0057C8;font-weight:800;margin-left:auto;font-size:12px;}
+
+/* FOOTER BAR */
+.footer-bar{
+  background:linear-gradient(90deg,#003087,#0057C8);
+  margin:10px 8px;border-radius:10px;
+  padding:14px 16px;
+  display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:center;gap:8px;
+}
+.footer-chip{
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.3);
+  color:white;padding:6px 16px;border-radius:20px;
+  font-size:12px;font-weight:800;
+}
+.footer-chip.gold{background:#FFD43B;color:#003087;border-color:#FFD43B;}
+.footer-sep{color:rgba(255,255,255,0.4);font-size:14px;font-weight:300;}
+
+/* BOTTOM FOOTER */
+.footer{
+  background:#003087;padding:12px;
+  text-align:center;color:white;
+  font-size:11px;font-weight:700;
+  border-top:3px solid #FFD43B;
+  margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <a href="index.html" class="back-btn">← Back to Courses</a>
+  <div class="top-tag">🏭 Online Industrial Training Program</div>
+  <h1>Java Backend Engineering</h1>
+  <h2>MASTERY PROGRAM</h2>
+  <p>Transform Your Career with Industry-Driven Backend Development Training</p>
+</div>
+
+<!-- FOOTER BAR — key stats -->
+<div class="footer-bar">
+  <span class="footer-chip">⏱ Duration: 8 Weeks</span>
+  <span class="footer-sep">|</span>
+  <span class="footer-chip gold">💰 Course Fee: ₹5000</span>
+  <span class="footer-sep">|</span>
+  <span class="footer-chip">🪑 Limited Seats</span>
+</div>
+
+<!-- ROW 1: Highlights + Core Areas -->
+<div class="row" style="margin-top:0;">
+
+  <!-- HIGHLIGHTS -->
+  <div class="sec">
+    <div class="sec-hdr" style="background:#0057C8;">🎯 Program Highlights</div>
+    <ul class="hl-list">
+      <li class="hl-item"><span class="hl-icon">📅</span>8 Weeks Live Interactive Training</li>
+      <li class="hl-item"><span class="hl-icon">🏭</span>Real-Time Industry Projects</li>
+      <li class="hl-item"><span class="hl-icon">📚</span>Industry-Focused Curriculum</li>
+      <li class="hl-item"><span class="hl-icon">🐙</span>GitHub Based Project Submission</li>
+      <li class="hl-item"><span class="hl-icon">⚙️</span>Hands-On Backend Development</li>
+      <li class="hl-item"><span class="hl-icon">🏅</span>Internship Completion Certificate</li>
+    </ul>
+  </div>
+
+  <!-- CORE AREAS -->
+  <div class="sec">
+    <div class="sec-hdr" style="background:#0099FF;">🧠 Core Learning Areas</div>
+    <ul class="core-list">
+      <li class="core-item"><span class="cdot"></span>Git</li>
+      <li class="core-item"><span class="cdot" style="background:#0099FF"></span>Maven & Gradle</li>
+      <li class="core-item"><span class="cdot"></span>Java Platform & OOP</li>
+      <li class="core-item"><span class="cdot" style="background:#0099FF"></span>Collections & Generics</li>
+      <li class="core-item"><span class="cdot"></span>Java 8 (Lambdas, Streams, Optional, DateTime)</li>
+      <li class="core-item"><span class="cdot" style="background:#0099FF"></span>Design Principles & Patterns</li>
+      <li class="core-item"><span class="cdot"></span>Clean Code & Log4J</li>
+      <li class="core-item"><span class="cdot" style="background:#0099FF"></span>TDD, JUnit & Mockito</li>
+      <li class="core-item"><span class="cdot"></span>JPA & Hibernate</li>
+      <li class="core-item"><span class="cdot" style="background:#0099FF"></span>Microservices & Spring Cloud</li>
+      <li class="core-item"><span class="cdot"></span>Eureka & Feign Client</li>
+      <li class="core-item"><span class="cdot" style="background:#0099FF"></span>NoSQL</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ROW 2: Projects + Trainers -->
+<div class="row">
+
+  <!-- PROJECTS -->
+  <div class="sec">
+    <div class="sec-hdr" style="background:#003087;">🚀 Industry Capstone Projects</div>
+    <ul class="proj-list">
+      <li class="proj-item"><span class="proj-icon">📝</span>Online Quiz Management System</li>
+      <li class="proj-item"><span class="proj-icon">📚</span>Library Management System</li>
+    </ul>
+  </div>
+
+  <!-- TRAINERS -->
+  <div class="sec">
+    <div class="sec-hdr" style="background:#0057C8;">👩‍💼 Industry Trainers</div>
+    <ul class="trainer-list">
+      <li class="trainer-item">
+        <span class="trainer-icon">👩‍💻</span>
+        <div>
+          <div style="font-weight:800;">Sreelekha</div>
+          <div style="font-size:10.5px;color:#555;">EPAM Systems</div>
+        </div>
+      </li>
+      <li class="trainer-item">
+        <span class="trainer-icon">👨‍💻</span>
+        <div>
+          <div style="font-weight:800;">Satya Sai</div>
+          <div style="font-size:10.5px;color:#555;">EPAM Systems</div>
+        </div>
+        <span class="trainer-ph">7995292385</span>
+      </li>
+      <li class="trainer-item">
+        <span class="trainer-icon">👩‍💻</span>
+        <div>
+          <div style="font-weight:800;">Khyati</div>
+          <div style="font-size:10.5px;color:#555;">EPAM Systems</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- ENROLL -->
+<div style="margin:12px 8px;background:linear-gradient(135deg,#EAF2FF,#D0E8FF);border:2px solid #0057C8;border-radius:14px;padding:20px 16px;text-align:center;">
+  <div style="font-size:24px;margin-bottom:6px;">🎓</div>
+  <h3 style="color:#003087;font-size:16px;font-weight:900;margin-bottom:5px;">Interested? Register Now!</h3>
+  <p style="color:#1A2A4A;font-size:12px;margin-bottom:14px;line-height:1.5;">Fill the form and our team will contact you.<br>Limited seats — register early!</p>
+  <a href="https://forms.gle/ijwiNBXffvDiWaGG7" target="_blank"
+     style="display:inline-block;background:linear-gradient(90deg,#003087,#0099FF);color:white;font-family:'Nunito',sans-serif;padding:12px 34px;border-radius:30px;font-size:14px;font-weight:900;text-decoration:none;box-shadow:0 4px 16px rgba(0,48,135,0.35);">
+    📋 &nbsp;Fill Registration Form
+  </a>
+  <div style="color:#888;font-size:11px;margin-top:8px;">Opens Google Form • Free to fill</div>
+</div>
+
+<div class="footer">Java Backend Engineering Mastery Program &nbsp;|&nbsp; Online Industrial Training &nbsp;|&nbsp; Industry Mentors &nbsp;|&nbsp; Real Projects</div>
+
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aptitude & Reasoning Course Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .poster {
+    width: 780px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #8B0000 0%, #c0392b 40%, #922B21 100%);
+    padding: 28px 30px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 180px; height: 180px;
+    border: 3px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -20px;
+    width: 140px; height: 140px;
+    border: 2px solid rgba(255,255,255,0.06);
+    border-radius: 50%;
+  }
+
+  .header-grid {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header-icon {
+    flex-shrink: 0;
+    width: 110px;
+    height: 110px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255,255,255,0.2);
+  }
+  .header-icon svg {
+    width: 70px;
+    height: 70px;
+  }
+
+  .header-text h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.05;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .header-text h1 span {
+    color: #F4A823;
+  }
+  .header-text p {
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    margin-top: 6px;
+    font-weight: 400;
+  }
+
+  /* OVERVIEW BAND */
+  .overview-band {
+    background: #f5f5f5;
+    border-top: 4px solid #F4A823;
+    padding: 12px 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .overview-band .label {
+    background: #c0392b;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .overview-band .desc {
+    font-size: 13px;
+    color: #333;
+    font-weight: 500;
+  }
+
+  /* SECTION HEADER */
+  .section-header {
+    background: linear-gradient(90deg, #c0392b, #922B21);
+    text-align: center;
+    padding: 9px 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  .section-header::before,
+  .section-header::after {
+    content: '•';
+    margin: 0 12px;
+    color: #F4A823;
+    font-size: 18px;
+  }
+
+  /* HIGHLIGHTS */
+  .highlights {
+    background: #fff;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #eee;
+  }
+  .highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .highlight-icon {
+    width: 38px;
+    height: 38px;
+    background: #fdf0e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .highlight-item span {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: #222;
+  }
+
+  /* TWO COLUMN TOPICS */
+  .topics-wrapper {
+    background: #f9f9f9;
+    padding: 0;
+  }
+
+  .topics-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0 0 4px 0;
+  }
+
+  .topic-col {
+    padding: 14px 18px 10px;
+  }
+  .topic-col:first-child {
+    border-right: 2px solid #e8e8e8;
+  }
+
+  .col-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #8B0000;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #F4A823;
+  }
+
+  .topic-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ddd;
+  }
+  .topic-item:last-child {
+    border-bottom: none;
+  }
+
+  .topic-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+  }
+  .dot-red   { background: #fdecea; }
+  .dot-blue  { background: #e8f0fe; }
+  .dot-green { background: #e6f4ea; }
+  .dot-orange{ background: #fef3e2; }
+  .dot-purple{ background: #f3e8fd; }
+  .dot-teal  { background: #e0f7f4; }
+
+  .topic-item span {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: #2c2c2c;
+    line-height: 1.3;
+  }
+
+  /* ORANGE SECTION (Capstone / Sub-topics) */
+  .orange-section {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    padding: 0 0 10px 0;
+  }
+
+  .orange-section .topics-columns {
+    padding: 0 0 6px 0;
+  }
+  .orange-section .topic-col {
+    padding: 14px 18px 6px;
+  }
+  .orange-section .topic-col:first-child {
+    border-right: 2px solid rgba(255,255,255,0.2);
+  }
+  .orange-section .col-title {
+    color: #fff;
+    border-bottom-color: rgba(255,255,255,0.5);
+  }
+  .orange-section .topic-item {
+    border-bottom-color: rgba(255,255,255,0.18);
+  }
+  .orange-section .topic-item span {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  .orange-section .topic-dot {
+    background: rgba(255,255,255,0.18) !important;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: linear-gradient(135deg, #8B0000, #c0392b);
+    padding: 14px 20px 10px;
+    text-align: center;
+  }
+  .footer-note {
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .footer-tagline {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    color: #F4A823;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+
+  /* decorative lines in header */
+  .deco-lines {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .deco-lines span {
+    position: absolute;
+    background: rgba(255,255,255,0.04);
+  }
+  .deco-lines .l1 { width: 2px; height: 100%; top: 0; right: 120px; }
+  .deco-lines .l2 { width: 2px; height: 100%; top: 0; right: 140px; }
+  .deco-lines .l3 { width: 100%; height: 2px; top: 30px; left: 0; }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div style="margin-bottom:10px;">
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);color:white;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.3);">← Back to Courses</a>
+    </div>
+    <div class="deco-lines">
+      <span class="l1"></span><span class="l2"></span><span class="l3"></span>
+    </div>
+    <div class="header-grid">
+      <div class="header-icon">
+        <!-- Brain / Math icon SVG -->
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="40" cy="40" r="34" fill="rgba(255,255,255,0.12)" stroke="#F4A823" stroke-width="2.5"/>
+          <text x="40" y="30" text-anchor="middle" font-size="18" fill="#F4A823" font-family="Oswald,sans-serif" font-weight="700">Q&amp;A</text>
+          <line x1="22" y1="40" x2="58" y2="40" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <text x="28" y="56" text-anchor="middle" font-size="14" fill="white" font-family="Oswald,sans-serif">%</text>
+          <text x="52" y="56" text-anchor="middle" font-size="14" fill="#F4A823" font-family="Oswald,sans-serif">∑</text>
+        </svg>
+      </div>
+      <div class="header-text">
+        <h1>Quantitative <span>Aptitude</span><br>&amp; <span>Logical</span> Reasoning</h1>
+        <p>Master Aptitude, Data Interpretation &amp; Analytical Reasoning</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW BAND -->
+  <div class="overview-band">
+    <div class="label">Program Overview</div>
+    <div class="desc">Comprehensive Coverage of Aptitude &amp; Reasoning for Competitive Exams &amp; Placements</div>
+  </div>
+
+  <!-- HIGHLIGHTS -->
+  <div class="section-header">Program Highlights</div>
+  <div class="highlights">
+    <div class="highlight-item">
+      <div class="highlight-icon">📅</div>
+      <span>Topic-wise Practice Sessions</span>
+    </div>
+    <div class="highlight-item">
+      <div class="highlight-icon">📊</div>
+      <span>Data Interpretation Focus</span>
+    </div>
+    <div class="highlight-item">
+      <div class="highlight-icon">🧠</div>
+      <span>Logic-Based Problem Solving</span>
+    </div>
+  </div>
+
+  <!-- QUANTITATIVE APTITUDE -->
+  <div class="section-header">Quantitative Aptitude Topics</div>
+  <div class="topics-wrapper">
+    <div class="topics-columns">
+      <div class="topic-col">
+        <div class="col-title">Arithmetic &amp; Algebra</div>
+        <div class="topic-item"><div class="topic-dot dot-red">🔢</div><span>Simplification &amp; Approximation</span></div>
+        <div class="topic-item"><div class="topic-dot dot-orange">%</div><span>Percentages</span></div>
+        <div class="topic-item"><div class="topic-dot dot-green">💰</div><span>Profit and Loss</span></div>
+        <div class="topic-item"><div class="topic-dot dot-blue">⚖️</div><span>Ratio and Proportion</span></div>
+        <div class="topic-item"><div class="topic-dot dot-purple">🤝</div><span>Partnership</span></div>
+        <div class="topic-item"><div class="topic-dot dot-teal">📐</div><span>Averages</span></div>
+        <div class="topic-item"><div class="topic-dot dot-red">🧪</div><span>Mixtures and Allegations</span></div>
+        <div class="topic-item"><div class="topic-dot dot-orange">📈</div><span>Quadratic Equations</span></div>
+        <div class="topic-item"><div class="topic-dot dot-blue">≤</div><span>Inequalities</span></div>
+      </div>
+      <div class="topic-col">
+        <div class="col-title">Speed, Interest &amp; DI</div>
+        <div class="topic-item"><div class="topic-dot dot-green">🚗</div><span>Time, Speed and Distance</span></div>
+        <div class="topic-item"><div class="topic-dot dot-red">🚂</div><span>Trains</span></div>
+        <div class="topic-item"><div class="topic-dot dot-blue">🚤</div><span>Boats and Streams</span></div>
+        <div class="topic-item"><div class="topic-dot dot-orange">⏱️</div><span>Time and Work</span></div>
+        <div class="topic-item"><div class="topic-dot dot-purple">🔧</div><span>Pipes and Cisterns</span></div>
+        <div class="topic-item"><div class="topic-dot dot-teal">💵</div><span>Simple Interest</span></div>
+        <div class="topic-item"><div class="topic-dot dot-red">🏦</div><span>Compound Interest</span></div>
+        <div class="topic-item"><div class="topic-dot dot-green">📊</div><span>Data Interpretation</span></div>
+        <div class="topic-item"><div class="topic-dot dot-blue">📉</div><span>Tables, Bar, Pie &amp; Line Graph</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOGICAL & ANALYTICAL REASONING -->
+  <div class="orange-section">
+    <div class="section-header" style="background: rgba(0,0,0,0.25); color:#fff;">Logical &amp; Analytical Reasoning Topics</div>
+    <div class="topics-columns">
+      <div class="topic-col">
+        <div class="col-title">Series &amp; Verbal Reasoning</div>
+        <div class="topic-item"><div class="topic-dot">🔢</div><span>Number Series</span></div>
+        <div class="topic-item"><div class="topic-dot">🔤</div><span>Alphabet Series</span></div>
+        <div class="topic-item"><div class="topic-dot">🔐</div><span>Coding and Decoding</span></div>
+        <div class="topic-item"><div class="topic-dot">🩸</div><span>Blood Relations</span></div>
+        <div class="topic-item"><div class="topic-dot">🧭</div><span>Direction Sense</span></div>
+        <div class="topic-item"><div class="topic-dot">🏆</div><span>Order and Ranking</span></div>
+        <div class="topic-item"><div class="topic-dot">❓</div><span>Missing Numbers</span></div>
+      </div>
+      <div class="topic-col">
+        <div class="col-title">Puzzles &amp; Non-Verbal</div>
+        <div class="topic-item"><div class="topic-dot">💺</div><span>Seating Arrangement (Linear &amp; Circular)</span></div>
+        <div class="topic-item"><div class="topic-dot">🧩</div><span>Puzzles (Floor, Box, Scheduling, etc.)</span></div>
+        <div class="topic-item"><div class="topic-dot">🗣️</div><span>Syllogism</span></div>
+        <div class="topic-item"><div class="topic-dot">📋</div><span>Data Sufficiency</span></div>
+        <div class="topic-item"><div class="topic-dot">⌨️</div><span>Input-Output (Logic Based)</span></div>
+        <div class="topic-item"><div class="topic-dot">🪞</div><span>Non-Verbal Reasoning</span></div>
+        <div class="topic-item"><div class="topic-dot">✂️</div><span>Mirror Image, Paper Cutting, Figure Series</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENROLL -->
+  <div style="background:#fff;padding:20px 24px;text-align:center;border-top:3px solid #F4A823;">
+    <div style="font-size:22px;margin-bottom:6px;">🎓</div>
+    <h3 style="color:#8B0000;font-size:16px;font-weight:900;margin-bottom:5px;font-family:'Oswald',sans-serif;letter-spacing:1px;">INTERESTED? REGISTER NOW!</h3>
+    <p style="color:#555;font-size:12px;margin-bottom:14px;line-height:1.5;">Fill the form and our team will contact you. Limited seats — register early!</p>
+    <a href="https://forms.gle/ijwiNBXffvDiWaGG7" target="_blank"
+       style="display:inline-block;background:linear-gradient(90deg,#8B0000,#c0392b);color:white;font-family:'Oswald',sans-serif;padding:12px 34px;border-radius:30px;font-size:14px;font-weight:700;text-decoration:none;letter-spacing:1px;box-shadow:0 4px 16px rgba(139,0,0,0.35);">
+      📋 &nbsp;FILL REGISTRATION FORM
+    </a>
+    <div style="color:#aaa;font-size:11px;margin-top:8px;">Opens Google Form • Free to fill</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-note">Complete Exam Preparation — Placements · Bank Exams · Government Exams</div>
+    <div class="footer-tagline">• MASTER APTITUDE. ACE ANY EXAM. •</div>
+  </div>
+
+</div>
+</body>
+</html>

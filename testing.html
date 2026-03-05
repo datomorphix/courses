@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Java Automation Testing Course</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:#F5F0E8;color:#1A1A1A;}
+.header{background:linear-gradient(160deg,#1A1A1A 0%,#CC2200 60%,#E8A020 100%);padding:22px 16px 20px;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);color:white;padding:6px 14px;border-radius:20px;font-size:12px;font-weight:700;text-decoration:none;border:1px solid rgba(255,255,255,0.3);margin-bottom:12px;}
+.back-btn:hover{background:rgba(255,255,255,0.25);}
+.header h1{font-size:clamp(22px,5.5vw,34px);font-weight:900;color:white;line-height:1.15;}
+.header h1 em{color:#E8A020;font-style:normal;}
+.overview-box{background:rgba(255,255,255,0.12);border-radius:8px;padding:11px 14px;margin-top:12px;border-left:4px solid #E8A020;}
+.ov-label{background:#E8A020;color:#1A1A1A;display:inline-block;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:800;margin-bottom:5px;letter-spacing:.5px;}
+.overview-box p{color:rgba(255,255,255,0.9);font-size:12px;line-height:1.5;}
+
+.sec{margin:10px 8px;background:white;border-radius:10px;overflow:hidden;border:1px solid #E0D0C0;}
+.sec-hdr{padding:9px 16px;font-size:12px;font-weight:800;color:#1A1A1A;letter-spacing:.4px;background:#F5F0E8;border-top:3px solid #CC2200;border-bottom:2px solid #CC2200;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;}
+.sec-hdr::before,.sec-hdr::after{content:'';width:7px;height:7px;background:#CC2200;transform:rotate(45deg);display:inline-block;}
+
+.hl-list{padding:8px 14px 12px;}
+.hl-item{display:flex;align-items:center;gap:10px;padding:9px 8px;border-bottom:1px dashed #E0D0C0;font-size:13px;font-weight:700;}
+.hl-item:last-child{border-bottom:none;}
+.hl-icon{font-size:18px;flex-shrink:0;}
+
+.core-grid{padding:10px 12px 12px;display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.core-item{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:6px;background:#FAF6F0;font-size:11px;font-weight:600;}
+.cdot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+
+.proj-grid{padding:10px 12px 12px;display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.proj-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;background:linear-gradient(135deg,#FFF3E0,#FFE0B2);font-size:11.5px;font-weight:600;line-height:1.3;border-left:3px solid #E8A020;}
+.picon{font-size:16px;flex-shrink:0;}
+
+.contacts{background:linear-gradient(135deg,#1A1A1A,#2A1000);padding:18px 12px 14px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:10px;}
+.cc{text-align:center;padding:8px 4px;}
+.cc+.cc{border-left:1px solid #444;}
+.cn{color:white;font-size:13px;font-weight:800;}
+.co{color:#AAA;font-size:11px;margin:2px 0 4px;}
+.cp{color:#E8A020;font-size:14px;font-weight:900;}
+.fee-bar{background:#1A1A1A;padding:10px;text-align:center;}
+.fee-pill{display:inline-block;background:#E8A020;color:#1A1A1A;padding:7px 24px;border-radius:20px;font-size:13px;font-weight:900;letter-spacing:.5px;}
+
+.footer{background:#991800;padding:12px;text-align:center;color:white;font-size:11px;font-weight:700;border-top:3px solid #E8A020;}
+
+.sec{animation:fadeUp .4s ease both;}
+.sec:nth-child(2){animation-delay:.05s}.sec:nth-child(3){animation-delay:.10s}.sec:nth-child(4){animation-delay:.15s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a href="index.html" class="back-btn">← Back to Courses</a>
+  <h1>JAVA <em>AUTOMATION</em><br>TESTING COURSE</h1>
+  <div class="overview-box">
+    <div class="ov-label">PROGRAM OVERVIEW</div>
+    <p>Become a Test Automation Expert with Hands-On Java &amp; Selenium Training</p>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">PROGRAM HIGHLIGHTS</div>
+  <div class="hl-list">
+    <div class="hl-item"><span class="hl-icon">📅</span>8 Weeks Live Interactive Training</div>
+    <div class="hl-item"><span class="hl-icon">🏭</span>Real Time Industry Projects</div>
+    <div class="hl-item"><span class="hl-icon">📋</span>Industry Based Curriculum</div>
+    <div class="hl-item"><span class="hl-icon">🏅</span>Internship Certificate on Completion</div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">CORE LEARNING AREAS</div>
+  <div class="core-grid">
+    <div class="core-item"><span class="cdot" style="background:#CC2200"></span>Java Programming Fundamentals</div>
+    <div class="core-item"><span class="cdot" style="background:#43B02A"></span>Selenium WebDriver</div>
+    <div class="core-item"><span class="cdot" style="background:#E8A020"></span>Object-Oriented Programming (OOP)</div>
+    <div class="core-item"><span class="cdot" style="background:#2A9D8F"></span>TestNG & Cucumber BDD</div>
+    <div class="core-item"><span class="cdot" style="background:#1A5FA8"></span>Software Testing Fundamentals</div>
+    <div class="core-item"><span class="cdot" style="background:#E76F51"></span>Data-Driven Testing</div>
+    <div class="core-item"><span class="cdot" style="background:#7B2D8B"></span>Build Tools & Version Control (Maven, Git)</div>
+    <div class="core-item"><span class="cdot" style="background:#CC2200"></span>API Automation (Rest Assured)</div>
+    <div class="core-item"><span class="cdot" style="background:#43B02A"></span>Selenium WebDriver (Advanced)</div>
+    <div class="core-item"><span class="cdot" style="background:#E8A020"></span>Continuous Integration (Jenkins)</div>
+    <div class="core-item"><span class="cdot" style="background:#1A5FA8"></span>TestNG & Cucumber BDD (Advanced)</div>
+    <div class="core-item"><span class="cdot" style="background:#2A9D8F"></span>Reporting & Logging</div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-hdr">INDUSTRY CAPSTONE PROJECTS</div>
+  <div class="proj-grid">
+    <div class="proj-item"><span class="picon">🛒</span>E-Commerce Site Testing (UI and API)</div>
+    <div class="proj-item"><span class="picon">✅</span>Automated Form Filling</div>
+    <div class="proj-item"><span class="picon">👥</span>HR Management System Automation</div>
+    <div class="proj-item"><span class="picon">🖥️</span>Automated E-Commerce Testing</div>
+    <div class="proj-item"><span class="picon">🌐</span>Selenium Testing on Multiple Browsers</div>
+    <div class="proj-item"><span class="picon">✈️</span>Automating a Flight Booking System</div>
+  </div>
+</div>
+
+<div class="contacts">
+  <div class="cc"><div class="cn">Satya Sai</div><div class="co">EPAM Systems</div><div class="cp">7995292385</div></div>
+  <div class="cc"><div class="cn">Chowdeswar</div><div class="co">Infosys</div><div class="cp">7993714060</div></div>
+  <div class="cc"><div class="cn">Rakesh</div><div class="co">Zenocta Solutions</div><div class="cp">8790161784</div></div>
+</div>
+<div class="fee-bar"><span class="fee-pill">• Course Fee: Rs. 3500 •</span></div>
+
+<!-- ENROLL -->
+<div style="margin:12px 8px;background:linear-gradient(135deg,#FFF3E0,#FFE0B2);border:2px solid #CC2200;border-radius:14px;padding:20px 16px;text-align:center;">
+  <div style="font-size:24px;margin-bottom:6px;">🎓</div>
+  <h3 style="color:#991800;font-size:16px;font-weight:900;margin-bottom:5px;">Interested? Register Now!</h3>
+  <p style="color:#3A1A00;font-size:12px;margin-bottom:14px;line-height:1.5;">Fill the form and our team will contact you.<br>Limited seats — register early!</p>
+  <a href="https://forms.gle/ijwiNBXffvDiWaGG7" target="_blank"
+     style="display:inline-block;background:linear-gradient(90deg,#CC2200,#E8A020);color:white;font-family:'Nunito',sans-serif;padding:12px 34px;border-radius:30px;font-size:14px;font-weight:900;text-decoration:none;box-shadow:0 4px 16px rgba(204,34,0,0.35);">
+    📋 &nbsp;Fill Registration Form
+  </a>
+  <div style="color:#888;font-size:11px;margin-top:8px;">Opens Google Form • Free to fill</div>
+</div>
+
+<div class="footer">Java Automation Testing &nbsp;|&nbsp; Hands-On Training &nbsp;|&nbsp; Industry Projects &nbsp;|&nbsp; Certificate &nbsp;|&nbsp; Limited Seats</div>
+</body>
+</html>

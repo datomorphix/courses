@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Our Courses — Choose Your Learning Path</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Nunito',sans-serif;
+  background:linear-gradient(160deg,#0D1B2E 0%,#1A3A5C 100%);
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;
+  padding:20px 14px 50px;
+}
+.reg-fixed{position:fixed;top:14px;right:14px;z-index:999;}
+.reg-fixed a{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(90deg,#F5A623,#E76F51);
+  color:white;font-family:'Nunito',sans-serif;
+  padding:9px 18px;border-radius:30px;
+  font-size:12px;font-weight:900;text-decoration:none;
+  box-shadow:0 4px 16px rgba(245,166,35,0.5);
+}
+.top-badge{
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.7);padding:5px 18px;border-radius:20px;
+  font-size:11px;font-weight:700;letter-spacing:1px;
+  margin:52px 0 18px;text-transform:uppercase;
+}
+.main-title{text-align:center;}
+.main-title h1{font-size:clamp(24px,5.5vw,36px);font-weight:900;color:white;line-height:1.2;}
+.main-title h1 em{color:#F5A623;font-style:normal;}
+.main-title p{color:rgba(255,255,255,0.5);font-size:13px;margin-top:8px;}
+.divider{width:60px;height:3px;background:linear-gradient(90deg,#F5A623,#2A9D8F);border-radius:2px;margin:16px auto 28px;}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:20px;width:100%;max-width:920px;}
+
+.course-card{
+  border-radius:16px;overflow:hidden;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
+  text-decoration:none;display:block;
+  transition:transform .25s ease,box-shadow .25s ease;
+  animation:popIn .5s ease both;
+}
+.course-card:nth-child(1){animation-delay:.08s}
+.course-card:nth-child(2){animation-delay:.16s}
+.course-card:nth-child(3){animation-delay:.24s}
+.course-card:nth-child(4){animation-delay:.32s}
+.course-card:hover{transform:translateY(-6px);box-shadow:0 18px 50px rgba(0,0,0,0.55);}
+@keyframes popIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+
+.card-hdr{padding:22px 18px 18px;position:relative;overflow:hidden;}
+.card-hdr::after{content:'';position:absolute;bottom:-30px;right:-30px;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,0.05);}
+.card-hdr::before{content:'';position:absolute;top:-20px;left:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,0.03);}
+.course-tag{display:inline-block;padding:4px 12px;border-radius:20px;font-size:10px;font-weight:800;color:white;letter-spacing:.5px;margin-bottom:10px;background:rgba(255,255,255,0.18);}
+.card-icon{font-size:38px;margin-bottom:8px;display:block;}
+.card-hdr h2{font-size:clamp(16px,3.5vw,22px);font-weight:900;color:white;line-height:1.2;}
+.card-hdr h2 em{font-style:normal;}
+.card-hdr p{color:rgba(255,255,255,0.78);font-size:12px;margin-top:7px;line-height:1.5;}
+
+.card-body{background:white;padding:15px 18px 18px;}
+.highlights-mini{list-style:none;margin-bottom:12px;}
+.highlights-mini li{font-size:12px;font-weight:600;color:#333;padding:5px 0;border-bottom:1px dashed #EEE;display:flex;align-items:center;gap:8px;}
+.highlights-mini li:last-child{border-bottom:none;}
+.tools{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:13px;}
+.tool-pill{padding:3px 10px;border-radius:12px;font-size:10px;font-weight:700;color:white;}
+.cta-btn{display:block;width:100%;padding:11px;border-radius:8px;font-size:13px;font-weight:800;text-align:center;color:white;letter-spacing:.3px;transition:opacity .2s;}
+.cta-btn:hover{opacity:.88;}
+
+/* FEE + CONTACTS */
+.fee-band{
+  width:100%;max-width:920px;margin-top:26px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+}
+.fee-chip{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:white;padding:7px 18px;border-radius:20px;font-size:12px;font-weight:700;}
+.fee-chip.gold{background:linear-gradient(90deg,rgba(245,166,35,0.22),rgba(231,111,81,0.22));border-color:rgba(245,166,35,0.5);color:#F5A623;}
+
+.contacts-bar{
+  width:100%;max-width:920px;margin-top:14px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);
+  border-radius:14px;padding:16px 20px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:14px 28px;text-align:center;
+}
+.contact-chip{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.contact-chip .cname{color:white;font-size:12.5px;font-weight:800;}
+.contact-chip .corg{color:rgba(255,255,255,0.42);font-size:10px;font-weight:600;}
+.contact-chip .cph{color:#F5A623;font-size:13px;font-weight:900;}
+.contact-chip .cph.na{color:rgba(255,255,255,0.3);font-size:11px;}
+
+/* ENROLL */
+.enroll-box{
+  width:100%;max-width:920px;margin-top:20px;
+  background:linear-gradient(135deg,rgba(245,166,35,0.13),rgba(42,157,143,0.13));
+  border:2px solid rgba(245,166,35,0.38);border-radius:16px;
+  padding:24px 20px;text-align:center;
+}
+.enroll-box h3{color:white;font-size:18px;font-weight:900;margin-bottom:6px;}
+.enroll-box p{color:rgba(255,255,255,0.6);font-size:12.5px;margin-bottom:18px;line-height:1.6;}
+.enroll-btn{
+  display:inline-block;background:linear-gradient(90deg,#F5A623,#E76F51);
+  color:white;font-family:'Nunito',sans-serif;padding:14px 40px;border-radius:30px;
+  font-size:15px;font-weight:900;text-decoration:none;letter-spacing:.3px;
+  box-shadow:0 6px 24px rgba(245,166,35,0.45);transition:transform .2s;
+}
+.enroll-btn:hover{transform:translateY(-2px);}
+.enroll-note{color:rgba(255,255,255,0.3);font-size:11px;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<!-- FIXED TOP-RIGHT REGISTER -->
+<div class="reg-fixed">
+  <a href="https://forms.gle/ijwiNBXffvDiWaGG7" target="_blank">📋 Register Now</a>
+</div>
+
+<!-- HEADER -->
+<div class="top-badge">🎓 Available Courses</div>
+<div class="main-title">
+  <h1>Choose Your <em>Learning Path</em></h1>
+  <p>Tap a course to explore the full curriculum, projects &amp; details</p>
+</div>
+<div class="divider"></div>
+
+<!-- ALL 4 CARDS -->
+<div class="cards">
+
+  <!-- 1. ML -->
+  <a href="ml.html" class="course-card">
+    <div class="card-hdr" style="background:linear-gradient(135deg,#0D3B6E,#1A5FA8,#2A9D8F)">
+      <span class="course-tag">🤖 ARTIFICIAL INTELLIGENCE</span>
+      <span class="card-icon">🧠</span>
+      <h2>Machine Learning<br><em style="color:#FFD43B">with Python</em></h2>
+      <p>Build intelligent models using real-world datasets. Industry-ready skills from Day 1.</p>
+    </div>
+    <div class="card-body">
+      <ul class="highlights-mini">
+        <li><span>📅</span>6 Weeks Live Interactive Training</li>
+        <li><span>🚀</span>20 Hands-On ML Projects</li>
+        <li><span>☁️</span>Azure Cloud &amp; ML Studio</li>
+        <li><span>🏅</span>Internship Certificate</li>
+      </ul>
+      <div class="tools">
+        <span class="tool-pill" style="background:#306998">Python</span>
+        <span class="tool-pill" style="background:#2A9D8F">NumPy</span>
+        <span class="tool-pill" style="background:#F4A261">Pandas</span>
+        <span class="tool-pill" style="background:#E76F51">Scikit-learn</span>
+        <span class="tool-pill" style="background:#0078D4">Azure</span>
+        <span class="tool-pill" style="background:#333">GitHub</span>
+      </div>
+      <div class="cta-btn" style="background:linear-gradient(90deg,#1A5FA8,#2A9D8F)">View Full Course Details →</div>
+    </div>
+  </a>
+
+  <!-- 2. BACKEND -->
+  <a href="backend.html" class="course-card">
+    <div class="card-hdr" style="background:linear-gradient(135deg,#003087,#0057C8,#0099FF)">
+      <span class="course-tag">☕ BACKEND DEVELOPMENT</span>
+      <span class="card-icon">⚙️</span>
+      <h2>Java Backend<br><em style="color:#FFD43B">Engineering Mastery</em></h2>
+      <p>Transform your career with industry-driven Java &amp; Spring backend training.</p>
+    </div>
+    <div class="card-body">
+      <ul class="highlights-mini">
+        <li><span>📅</span>8 Weeks Live Interactive Training</li>
+        <li><span>🏭</span>Real-Time Industry Projects</li>
+        <li><span>🐙</span>GitHub Based Project Submission</li>
+        <li><span>🏅</span>Internship Completion Certificate</li>
+      </ul>
+      <div class="tools">
+        <span class="tool-pill" style="background:#CC2200">Java</span>
+        <span class="tool-pill" style="background:#6DB33F">Spring</span>
+        <span class="tool-pill" style="background:#0057C8">Microservices</span>
+        <span class="tool-pill" style="background:#2A9D8F">Hibernate</span>
+        <span class="tool-pill" style="background:#333">Git</span>
+        <span class="tool-pill" style="background:#7B2D8B">NoSQL</span>
+      </div>
+      <div class="cta-btn" style="background:linear-gradient(90deg,#003087,#0099FF)">View Full Course Details →</div>
+    </div>
+  </a>
+
+  <!-- 3. TESTING -->
+  <a href="testing.html" class="course-card">
+    <div class="card-hdr" style="background:linear-gradient(135deg,#1A1A1A,#CC2200,#E8A020)">
+      <span class="course-tag">⚙️ SOFTWARE TESTING</span>
+      <span class="card-icon">🧪</span>
+      <h2>Java <em style="color:#FFD43B">Automation</em><br>Testing Course</h2>
+      <p>Become a Test Automation Expert with Hands-On Java &amp; Selenium Training.</p>
+    </div>
+    <div class="card-body">
+      <ul class="highlights-mini">
+        <li><span>📅</span>8 Weeks Live Interactive Training</li>
+        <li><span>🏭</span>Real Time Industry Projects</li>
+        <li><span>🔧</span>Selenium, TestNG, Jenkins &amp; More</li>
+        <li><span>🏅</span>Industry Certificate on Completion</li>
+      </ul>
+      <div class="tools">
+        <span class="tool-pill" style="background:#CC2200">Java</span>
+        <span class="tool-pill" style="background:#43B02A">Selenium</span>
+        <span class="tool-pill" style="background:#E8A020;color:#111">TestNG</span>
+        <span class="tool-pill" style="background:#2A9D8F">Maven</span>
+        <span class="tool-pill" style="background:#7B2D8B">Jenkins</span>
+        <span class="tool-pill" style="background:#333">Git</span>
+      </div>
+      <div class="cta-btn" style="background:linear-gradient(90deg,#CC2200,#E8A020)">View Full Course Details →</div>
+    </div>
+  </a>
+
+  <!-- 4. APTITUDE -->
+  <a href="aptitude.html" class="course-card">
+    <div class="card-hdr" style="background:linear-gradient(135deg,#8B0000,#c0392b,#e67e22)">
+      <span class="course-tag">🧠 COMPETITIVE EXAMS</span>
+      <span class="card-icon">🔢</span>
+      <h2>Quantitative Aptitude<br><em style="color:#FFD43B">&amp; Logical Reasoning</em></h2>
+      <p>Master Aptitude, Data Interpretation &amp; Analytical Reasoning for Placements &amp; Exams.</p>
+    </div>
+    <div class="card-body">
+      <ul class="highlights-mini">
+        <li><span>📅</span>Topic-wise Practice Sessions</li>
+        <li><span>📊</span>Data Interpretation Focus</li>
+        <li><span>🧠</span>Logic-Based Problem Solving</li>
+        <li><span>🏆</span>Placement &amp; Govt Exam Ready</li>
+      </ul>
+      <div class="tools">
+        <span class="tool-pill" style="background:#8B0000">Arithmetic</span>
+        <span class="tool-pill" style="background:#c0392b">Algebra</span>
+        <span class="tool-pill" style="background:#e67e22">DI</span>
+        <span class="tool-pill" style="background:#7B2D8B">Puzzles</span>
+        <span class="tool-pill" style="background:#2A9D8F">Reasoning</span>
+        <span class="tool-pill" style="background:#333">Syllogism</span>
+      </div>
+      <div class="cta-btn" style="background:linear-gradient(90deg,#8B0000,#e67e22)">View Full Course Details →</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- FEE BAND -->
+<div class="fee-band">
+  <div class="fee-chip gold">💰 Course Fee: Rs. 3500 – Rs. 5000</div>
+  <div class="fee-chip">🪑 Limited Seats</div>
+  <div class="fee-chip">👨‍🏫 Industry Mentors</div>
+</div>
+
+<!-- CONTACTS -->
+<div class="contacts-bar">
+  <div class="contact-chip">
+    <span class="cname">Satya Sai</span>
+    <span class="corg">EPAM Systems</span>
+    <span class="cph">7995292385</span>
+  </div>
+  <div class="contact-chip">
+    <span class="cname">Chowdeswar</span>
+    <span class="corg">Infosys</span>
+    <span class="cph">7993714060</span>
+  </div>
+  <div class="contact-chip">
+    <span class="cname">Rakesh</span>
+    <span class="corg">ZenOcta Solutions</span>
+    <span class="cph">8790161784</span>
+  </div>
+  <div class="contact-chip">
+    <span class="cname">Sreelekha</span>
+    <span class="corg">EPAM Systems</span>
+    <span class="cph na">—</span>
+  </div>
+  <div class="contact-chip">
+    <span class="cname">Khyati</span>
+    <span class="corg">EPAM Systems</span>
+    <span class="cph na">—</span>
+  </div>
+</div>
+
+<!-- WHATSAPP SECTION -->
+<div style="width:100%;max-width:920px;margin-top:20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;">
+
+  <!-- Channel -->
+  <a href="https://whatsapp.com/channel/0029Vb73WlS3mFYBuWOlGZ0b" target="_blank"
+     style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(37,211,102,0.15),rgba(37,211,102,0.08));border:2px solid rgba(37,211,102,0.4);border-radius:14px;padding:16px 18px;text-decoration:none;transition:transform .2s;">
+    <div style="width:46px;height:46px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">📢</div>
+    <div>
+      <div style="color:#25D366;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px;">WhatsApp Channel</div>
+      <div style="color:white;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;line-height:1.3;">Data Science &amp; Machine Learning</div>
+      <div style="color:rgba(255,255,255,0.45);font-family:'Nunito',sans-serif;font-size:11px;margin-top:3px;">Follow for updates &amp; resources</div>
+    </div>
+  </a>
+
+  <!-- Community -->
+  <a href="https://chat.whatsapp.com/FvRTuUrsaE5JpwzXOQWkfx" target="_blank"
+     style="display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(37,211,102,0.15),rgba(37,211,102,0.08));border:2px solid rgba(37,211,102,0.4);border-radius:14px;padding:16px 18px;text-decoration:none;transition:transform .2s;">
+    <div style="width:46px;height:46px;background:#128C7E;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;">👥</div>
+    <div>
+      <div style="color:#25D366;font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:2px;">WhatsApp Community</div>
+      <div style="color:white;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;line-height:1.3;">Join Our Learning Community</div>
+      <div style="color:rgba(255,255,255,0.45);font-family:'Nunito',sans-serif;font-size:11px;margin-top:3px;">Connect with learners &amp; mentors</div>
+    </div>
+  </a>
+
+</div>
+
+<!-- ENROLL BOX -->
+<div class="enroll-box">
+  <div style="font-size:30px;margin-bottom:8px;">🎓</div>
+  <h3>Ready to Enroll?</h3>
+  <p>Fill in the registration form and our team will get back to you.<br>Limited seats available — register early!</p>
+  <a href="https://forms.gle/ijwiNBXffvDiWaGG7" target="_blank" class="enroll-btn">
+    📋 &nbsp;Register Now — Fill the Form
+  </a>
+  <div class="enroll-note">Opens Google Form • Free to fill • No payment required now</div>
+</div>
+
+</body>
+</html>
